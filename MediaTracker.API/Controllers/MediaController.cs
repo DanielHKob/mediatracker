@@ -1,7 +1,6 @@
-using Microsoft.AspNetCore.Mvc;
+using MediaTracker.Model.entities;
 using MediaTracker.Model.repositories;
-
-
+using Microsoft.AspNetCore.Mvc;
 namespace MediaTracker.API.Controllers;
 
 [ApiController]
