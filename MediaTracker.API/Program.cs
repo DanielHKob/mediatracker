@@ -11,6 +11,8 @@ builder.Services.AddSwaggerGen();
 
 // adding thew newly created repositories.
 builder.Services.AddScoped<MediaRepository>();
+builder.Services.AddScoped<UserRepository>();
+
 
 var app = builder.Build();
 
