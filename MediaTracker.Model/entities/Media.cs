@@ -7,10 +7,10 @@ public class Media
     public int Id {get; set;}
 
         // Title of the media item
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
         // Type of media (e.g., Movie, Series)
-        public string Type { get; set; }
+        public string? Type { get; set; }
 
         // Release year of the media item
         public int ReleaseYear { get; set; }

@@ -1,0 +1,13 @@
+/Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.Model/bin/Debug/net8.0/MediaTracker.Model.deps.json
+/Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.Model/bin/Debug/net8.0/MediaTracker.Model.dll
+/Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.Model/bin/Debug/net8.0/MediaTracker.Model.pdb
+/Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.Model/obj/Debug/net8.0/MediaTracker.Model.csproj.AssemblyReference.cache
+/Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.Model/obj/Debug/net8.0/MediaTracker.Model.GeneratedMSBuildEditorConfig.editorconfig
+/Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.Model/obj/Debug/net8.0/MediaTracker.Model.AssemblyInfoInputs.cache
+/Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.Model/obj/Debug/net8.0/MediaTracker.Model.AssemblyInfo.cs
+/Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.Model/obj/Debug/net8.0/MediaTracker.Model.csproj.CoreCompileInputs.cache
+/Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.Model/obj/Debug/net8.0/MediaTracker.Model.sourcelink.json
+/Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.Model/obj/Debug/net8.0/MediaTracker.Model.dll
+/Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.Model/obj/Debug/net8.0/refint/MediaTracker.Model.dll
+/Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.Model/obj/Debug/net8.0/MediaTracker.Model.pdb
+/Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.Model/obj/Debug/net8.0/ref/MediaTracker.Model.dll

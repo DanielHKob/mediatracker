@@ -31,3 +31,11 @@
 /Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.API/obj/Debug/net8.0/MediaTracker.API.pdb
 /Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.API/obj/Debug/net8.0/MediaTracker.API.genruntimeconfig.cache
 /Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.API/obj/Debug/net8.0/ref/MediaTracker.API.dll
+/Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.API/bin/Debug/net8.0/Microsoft.Extensions.Configuration.dll
+/Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.API/bin/Debug/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll
+/Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.API/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.API/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.API/bin/Debug/net8.0/Microsoft.Extensions.Primitives.dll
+/Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.API/bin/Debug/net8.0/Npgsql.dll
+/Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.API/bin/Debug/net8.0/MediaTracker.Model.dll
+/Users/danielkobel/Documents/GitHub/mediatracker/MediaTracker.API/bin/Debug/net8.0/MediaTracker.Model.pdb

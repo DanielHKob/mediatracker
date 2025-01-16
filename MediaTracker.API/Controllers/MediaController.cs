@@ -23,7 +23,7 @@ public class MediaController : ControllerBase
 
             return Ok(media);
         }
-
+ 
         [HttpGet]
         public ActionResult<IEnumerable<Media>> GetMediaItems()
         {
