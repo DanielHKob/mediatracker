@@ -3,7 +3,7 @@ import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -13,5 +13,18 @@ import { RouterLink } from '@angular/router';
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent {
+
+  userid: any;
+  userName: any;
+
+
+
+  constructor( private router: Router ){}
+
+
+  ngOnInit(): void{
+    this.getuseremail();
+  }
+
 
 }

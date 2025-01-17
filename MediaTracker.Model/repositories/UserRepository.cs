@@ -67,7 +67,7 @@ public class UserRepository : BaseRepository
             dbConn?.Close();
         }
     }
-
+    
     // Get all users
     public List<User> GetUsers()
     {
