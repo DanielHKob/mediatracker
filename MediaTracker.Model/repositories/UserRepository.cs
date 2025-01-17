@@ -27,7 +27,37 @@ public class UserRepository : BaseRepository
                     FirstName = data["firstname"]?.ToString(),
                     LastName = data["lastname"]?.ToString(),
                     Email = data["email"]?.ToString(),
-                    CreatedDate = Convert.ToDateTime(data["created_date"])
+                    CreatedDate = Convert.ToDateTime(data["created_date"]),
+                    Password = data["password"]?.ToString()
+                };
+            }
+            return null;
+        }
+        finally
+        {
+            dbConn?.Close();
+        }
+    }
+
+    public User GetUserByEmail(string email)
+    {
+        NpgsqlConnection dbConn = null;
+        try
+        {
+            dbConn = new NpgsqlConnection(ConnectionString);
+            var cmd = dbConn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM users WHERE email = @email";
+            cmd.Parameters.AddWithValue("@email", NpgsqlDbType.Varchar, email);
+            var data = GetData(dbConn, cmd);
+            if (data != null && data.Read())
+            {
+                return new User(Convert.ToInt32(data["id"]))
+                {
+                    FirstName = data["firstname"]?.ToString(),
+                    LastName = data["lastname"]?.ToString(),
+                    Email = data["email"]?.ToString(),
+                    CreatedDate = Convert.ToDateTime(data["created_date"]),
+                    Password = data["password"]?.ToString()
                 };
             }
             return null;
@@ -82,6 +112,7 @@ public class UserRepository : BaseRepository
             cmd.Parameters.AddWithValue("@lastname", NpgsqlDbType.Text, user.LastName);
             cmd.Parameters.AddWithValue("@email", NpgsqlDbType.Text, user.Email);
             cmd.Parameters.AddWithValue("@created_date", NpgsqlDbType.Date, user.CreatedDate);
+            cmd.Parameters.AddWithValue("@password", NpgsqlDbType.Text, user.Password);
             return InsertData(dbConn, cmd);
         }
         finally
@@ -102,12 +133,15 @@ public class UserRepository : BaseRepository
                 UPDATE users
                 SET firstname = @firstname,
                     lastname = @lastname,
-                    email = @email
+                    email = @email,
+                    password = @password
                 WHERE id = @id";
             cmd.Parameters.AddWithValue("@firstname", NpgsqlDbType.Text, user.FirstName);
             cmd.Parameters.AddWithValue("@lastname", NpgsqlDbType.Text, user.LastName);
             cmd.Parameters.AddWithValue("@email", NpgsqlDbType.Text, user.Email);
             cmd.Parameters.AddWithValue("@id", NpgsqlDbType.Integer, user.Id);
+            cmd.Parameters.AddWithValue("@password", NpgsqlDbType.Text, user.Password);
+
             return UpdateData(dbConn, cmd);
         }
         finally
