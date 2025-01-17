@@ -5,13 +5,15 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { DatePipe } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Title } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-media-items',
   standalone: true,
   imports: [MediaItemsComponent,
     FormsModule,
-    DatePipe
+    DatePipe,
+    RouterLink
   ],
   templateUrl: './media-items.component.html',
   styleUrl: './media-items.component.css'
@@ -39,7 +41,7 @@ mediaform: FormGroup;
   }
 
   ngOnInit(): void{
-    
+    this.fetchMedia();
   }
 
 

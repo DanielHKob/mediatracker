@@ -11,7 +11,7 @@ export class MediaitemsService {
 
   constructor(private http: HttpClient) {}
  
-  getMedias(): Observable<MediaItems[]> {
+  getMedias(Id: number): Observable<MediaItems[]> {
     return this.http.get<MediaItems[]>(this.baseUrl + "/Media");
   }
 
