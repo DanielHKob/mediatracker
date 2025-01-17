@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router, RouterLink } from '@angular/router';
+import { UserService } from '../services/user.service';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-nav-bar',
@@ -16,15 +18,42 @@ export class NavBarComponent {
 
   userid: any;
   userName: any;
+  firstname: any;
+  email: any;
+@Input() user!: User;
 
 
-
-  constructor( private router: Router ){}
+  constructor( private router: Router,
+    private userService: UserService
+   ){}
 
 
   ngOnInit(): void{
-    this.getuseremail();
+    this.getUserEmail();
+    this.getUser(this.email);
   }
 
+
+  getUserEmail(): void {
+    const headerValue = localStorage.getItem('headerValue');
+    if(headerValue){
+      const base64Credentials = headerValue.replace('Basic ', '');
+      const decodedString = atob(base64Credentials);
+      const [extractedEmail] = decodedString.split(':');
+      this.email = extractedEmail;
+      console.log(this.email);
+    } else {
+      console.log("failed due to missing authentication!");
+    }
+  }
+
+  getUser(email: string){
+    this.userService.getUserByEmail(email).subscribe((user) => {
+      if(user.id !== undefined){
+        this.firstname = user.FirstName;
+        this.userid = user.id;
+      }
+    })
+  }
 
 }
