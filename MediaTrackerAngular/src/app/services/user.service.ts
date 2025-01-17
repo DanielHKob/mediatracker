@@ -13,23 +13,23 @@ export class UserService {
  
    constructor(private http: HttpClient) {}
   
-   getMedias(Id: number): Observable<User[]> {
+   getUsers(Id: number): Observable<User[]> {
      return this.http.get<User[]>(this.baseUrl + "/User");
    }
  
-   getMedia(id: number): Observable<User> {
+   getUser(id: number): Observable<User> {
      return this.http.get<User>(`${this.baseUrl}/User/${id}`);
    }
  
-   createMedia(mediaitems: Partial<User>): Observable<User> {
+   createUser(mediaitems: Partial<User>): Observable<User> {
      return this.http.post<User>(`${this.baseUrl}/User`, mediaitems);
    }
  
-   updateMedia(id: number, mediaitem: User): Observable<any>{
+   updateUser(id: number, mediaitem: User): Observable<any>{
      return this.http.put(`${this.baseUrl}/User/${id}`, mediaitem);
    }
  
-   deleteMedia(id: number): Observable<any> {
+   deleteUser(id: number): Observable<any> {
      return this.http.delete(`${this.baseUrl}/User/${id}`);
    }
  
