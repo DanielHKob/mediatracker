@@ -26,7 +26,17 @@ namespace MediaTracker.API.Controllers;
             }
             return Ok(user);
         }
-
+        // Get a user by email
+        [HttpGet("login/{email}")]
+        public ActionResult<User> GetUserByEmail(string email)
+        {
+            var password = _repository.GetUserByEmail(email);
+            if (password == null)
+            {
+                return NotFound($"User with email {email} not found.");
+            }
+            return Ok(password);
+        }
         // Get all users
         [HttpGet]
         public ActionResult<IEnumerable<User>> GetUsers()
