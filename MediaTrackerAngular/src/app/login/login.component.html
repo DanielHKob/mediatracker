@@ -1,1 +1,53 @@
-<p>login works!</p>
+<div class="container">
+    <h2>Login</h2>
+    <p>Please enter your credentials below to log in.</p>
+  
+    <form class="form">
+      <!-- Single Field for Either Email or Username -->
+      <div class="form-group">
+        <mat-form-field class="form-input" appearance="outline">
+          <mat-label>Username or Email</mat-label>
+          <input
+            matInput
+            [(ngModel)]="userName"
+            type="text"
+            placeholder="Enter your username or email"
+            name="identifier"
+            required
+          />
+        </mat-form-field>
+      </div>
+  
+      <!-- Password Field -->
+      <div class="form-group">
+        <mat-form-field class="form-input" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            [(ngModel)]="password_input"
+            type="password"
+            placeholder="Enter your password"
+            name="password"
+            required
+          />
+        </mat-form-field>
+      </div>
+  
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="login()"
+        class="submit-button"
+      >
+        Login
+      </button>
+      <p>
+        Don't have an account?
+        <a routerLink="/create-user">Register here</a> <br>
+        Can't remember your password?
+        <a routerLink="/login/reset-password">Reset password</a>
+      </p>
+    </form>
+  </div>
+  
