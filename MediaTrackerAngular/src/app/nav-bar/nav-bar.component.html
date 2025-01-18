@@ -1,1 +1,43 @@
-<p>nav-bar works!</p>
+<mat-toolbar class="navbar" color="primary">
+    <span class="app-title">ActivityTracker</span>
+  
+    <div class="nav-link" *ngIf="isLoggedIn">
+      <button mat-raised-button color="primary" type="button" [routerLink]="['/media']">
+        View registration
+      </button>
+      <button mat-raised-button color="primary" [routerLink]="['/create-activity']">
+        Create registration
+      </button>
+    </div>
+  
+  
+    <!-- Spacer to push profile and auth links to the right side -->
+    <span class="spacer"></span>
+  
+    <!-- Welcome Message -->
+    <div *ngIf="isLoggedIn" class="welcome-message">Welcome, {{ firstname }}</div>
+  
+    <!-- Spacer -->
+    <span class="spacer"></span>
+  
+    <!-- Profile and Logout Buttons (Visible Only When Logged In) -->
+    <div class="profile-link" *ngIf="isLoggedIn">
+      <button mat-raised-button color="primary" type="button" (click)="goToProfile(userid)">
+        View Profile
+      </button>
+      <button mat-raised-button color="warn" (click)="logout()">
+        Logout
+      </button>
+    </div>
+  
+    <!-- Login and Register Links (Visible Only When Not Logged In) -->
+    <div class="auth-links" *ngIf="!isLoggedIn">
+      <button mat-button color="primary" [routerLink]="['/login']">
+        Login
+      </button>
+      <button mat-button color="primary" [routerLink]="['/register']">
+        Register
+      </button>
+    </div>
+  </mat-toolbar>
+  

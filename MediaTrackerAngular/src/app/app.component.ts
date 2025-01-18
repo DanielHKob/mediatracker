@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { MediaItemsComponent } from "./media-items/media-items.component";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, LoginComponent, NavBarComponent],
+  imports: [RouterOutlet, RouterLink, LoginComponent, NavBarComponent, MediaItemsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

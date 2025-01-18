@@ -56,4 +56,24 @@ export class NavBarComponent {
     })
   }
 
+  logout(){
+    const confirmLoguout = confirm('Are you sure you want to logout?');
+    if (!confirmLoguout){
+      return;
+    }
+    // Clear the 'headerValue' from the localStorage
+    localStorage.removeItem('headerValue');
+
+    // navigate to the login or home page after successfull clearing of localStorage
+    this.router.navigate(['/login']);
+  }
+
+  goToProfile(userid: number): void {
+    console.log(this.userid);
+
+    if(this.userid){
+      this.router.navigate(['/user'])
+    }
+  }
+
 }
