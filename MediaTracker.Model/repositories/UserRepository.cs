@@ -170,4 +170,43 @@ public class UserRepository : BaseRepository
             dbConn?.Close();
         }
     }
+
+    public int GetLatestUserId()
+    {
+    using (var dbconn = new NpgsqlConnection(ConnectionString))
+    {
+        dbconn.Open();
+        using (var cmd = dbconn.CreateCommand())
+        {
+            // Step 1: Get the current value of the sequence
+            cmd.CommandText = "SELECT last_value FROM public.user_id_seq";
+            var resultObj = cmd.ExecuteScalar();
+
+            // Step 2: Get the maximum user ID from the user table
+            cmd.CommandText = "SELECT COALESCE(MAX(id), 0) FROM public.users";
+            var maxIdObj = cmd.ExecuteScalar();
+
+            // Convert results to integers
+            int sequenceValue = Convert.ToInt32(resultObj);
+            int maxUserId = Convert.ToInt32(maxIdObj);
+
+            // Step 3: Compare and update the sequence if necessary
+            if (sequenceValue < maxUserId)
+            {
+                // Update the sequence to match the max user ID
+                cmd.CommandText = "SELECT setval('public.user_id_seq', @MaxUserId, true)";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("MaxUserId", maxUserId);
+                cmd.ExecuteScalar();
+
+                return maxUserId;
+            }
+            else
+            {
+                // No update needed; return the sequence value
+                return sequenceValue;
+            }
+        }
+    }
+}
 }

@@ -111,5 +111,14 @@ namespace MediaTracker.API.Controllers;
             return BadRequest($"Failed to delete the user with ID {id}.");
         }
 
+        [HttpGet("latest-id")]
+        
+        public ActionResult<IEnumerable<User>> GetLatestUserId()
+        {
+            var id = _repository.GetLatestUserId();
+            return Ok(id);
+
+        }
+
 
 }
