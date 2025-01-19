@@ -52,6 +52,8 @@ this.loginForm = this.fb.group({
     }
   }
 
+
+
   getUserByEmail(email: string){
     console.log("get user by email has been called!");
     this.userService.getUserByEmail(email).subscribe({
@@ -71,6 +73,11 @@ this.loginForm = this.fb.group({
       // now navigate to safe space 
       this.router.navigate(['/media-items'])
     }
+  }
+
+  createUser(){
+    console.log('Navigating to create-user'); // Add a log to confirm the method is called
+    this.router.navigate(['/create-user']);
   }
 
 

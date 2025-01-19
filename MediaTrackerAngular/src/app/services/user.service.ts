@@ -34,6 +34,8 @@ export class UserService {
    getUserByEmail(email: string): Observable<User> {
     return this.http.get<User>(`${this.baseUrl}/User/login/${email}`);
   }
-
+  getLatestUserId(): Observable<number> {
+    return this.http.get<number>(this.baseUrl +"/User/latest-id");
+  }
 
 }

@@ -27,7 +27,6 @@ public class UserRepository : BaseRepository
                     FirstName = data["firstname"]?.ToString(),
                     LastName = data["lastname"]?.ToString(),
                     Email = data["email"]?.ToString(),
-                    CreatedDate = Convert.ToDateTime(data["created_date"]),
                     dateofbirth = Convert.ToDateTime(data["dateofbirth"]),
                     Password = data["password"]?.ToString()
                 };
@@ -57,7 +56,7 @@ public class UserRepository : BaseRepository
                     FirstName = data["firstname"]?.ToString(),
                     LastName = data["lastname"]?.ToString(),
                     Email = data["email"]?.ToString(),
-                    CreatedDate = Convert.ToDateTime(data["created_date"]),
+                    dateofbirth = Convert.ToDateTime(data["dateofbirth"]),
                     Password = data["password"]?.ToString()
                 };
             }
@@ -87,7 +86,6 @@ public class UserRepository : BaseRepository
                     FirstName = data["firstname"]?.ToString(),
                     LastName = data["lastname"]?.ToString(),
                     Email = data["email"]?.ToString(),
-                    CreatedDate = Convert.ToDateTime(data["created_date"]),
                     dateofbirth = Convert.ToDateTime(data["dateofbirth"])
                 });
             }
@@ -108,12 +106,11 @@ public class UserRepository : BaseRepository
             dbConn = new NpgsqlConnection(ConnectionString);
             var cmd = dbConn.CreateCommand();
             cmd.CommandText = @"
-                INSERT INTO users (firstname, lastname, email, created_date)
-                VALUES (@firstname, @lastname, @email, @created_date)";
+                INSERT INTO users (firstname, lastname, email, dateofbirth, password)
+                VALUES (@firstname, @lastname, @email, @dateofbirth, @password)";
             cmd.Parameters.AddWithValue("@firstname", NpgsqlDbType.Text, user.FirstName);
             cmd.Parameters.AddWithValue("@lastname", NpgsqlDbType.Text, user.LastName);
             cmd.Parameters.AddWithValue("@email", NpgsqlDbType.Text, user.Email);
-            cmd.Parameters.AddWithValue("@created_date", NpgsqlDbType.Date, user.CreatedDate);
             cmd.Parameters.AddWithValue("@dateofbirth", NpgsqlDbType.Date, user.dateofbirth);
             cmd.Parameters.AddWithValue("@password", NpgsqlDbType.Text, user.Password);
             return InsertData(dbConn, cmd);

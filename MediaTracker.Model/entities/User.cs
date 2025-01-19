@@ -18,11 +18,7 @@ public class User
         public string Email { get; set; }
 
         //Password of the user 
-        
         public string Password {get; set;}
-
-        // Date the user record was created (defaulted to the current date)
-        public DateTime CreatedDate { get; set; }
 
         public DateTime dateofbirth {get; set;}
 }

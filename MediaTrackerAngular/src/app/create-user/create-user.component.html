@@ -1,1 +1,42 @@
-<p>create-user works!</p>
+<div class="container">
+    <h2>Create User</h2>
+    <p>Fill out the form below to create a new user.</p>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form">
+        <div class="form-row">
+            <div class="form-group half-width">
+                <mat-form-field appearance="outline" class="form-input">
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="FirstName" type="text" required />
+                </mat-form-field>
+            </div>
+            <div class="form-group half-width">
+                <mat-form-field appearance="outline" class="form-input">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="LastName" type="text" required />
+                </mat-form-field>
+            </div>
+        </div>
+  
+        <div class="form-group">
+            <mat-form-field appearance="outline" class="form-input">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" type="email" required />
+            </mat-form-field>
+        </div>
+  
+        <div class="form-group">
+            <mat-form-field appearance="outline" class="form-input">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" type="password" required minlength="6" />
+            </mat-form-field>
+        </div>
+  
+        <button mat-raised-button color="primary" class="submit-button" type="submit">
+            Register
+        </button>
+        <p>
+            Already have a user? <a routerLink="/login">Log in here</a>
+        </p>
+    </form>
+  </div>
+  
