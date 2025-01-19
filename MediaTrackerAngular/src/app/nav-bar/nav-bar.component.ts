@@ -6,11 +6,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { User } from '../model/user';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [RouterLink, MatMenuModule,MatIcon,MatToolbarModule,MatButton],
+  imports: [RouterLink, MatMenuModule,MatIcon,MatToolbarModule,MatButton, CommonModule],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
@@ -55,7 +56,11 @@ export class NavBarComponent {
       }
     })
   }
-
+  
+  get isLoggedIn(): boolean {
+    return !!localStorage.getItem('headerValue');
+  }
+  
   logout(){
     const confirmLoguout = confirm('Are you sure you want to logout?');
     if (!confirmLoguout){
@@ -75,5 +80,7 @@ export class NavBarComponent {
       this.router.navigate(['/user'])
     }
   }
+
+  
 
 }

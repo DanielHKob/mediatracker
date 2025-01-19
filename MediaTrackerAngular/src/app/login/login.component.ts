@@ -36,6 +36,7 @@ this.loginForm = this.fb.group({
 }
 
   ngOnInit(): void{
+    console.log("login component has been triggered");
 
   }
 
