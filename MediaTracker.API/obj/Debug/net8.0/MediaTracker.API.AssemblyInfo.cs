@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MediaTracker.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+83607988f6efff25eccf2fa7efa7edca396b410c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c00cd9e75ab900575675ba9bb3bfb2c20145a648")]
 [assembly: System.Reflection.AssemblyProductAttribute("MediaTracker.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MediaTracker.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

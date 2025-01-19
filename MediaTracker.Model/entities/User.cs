@@ -23,4 +23,6 @@ public class User
 
         // Date the user record was created (defaulted to the current date)
         public DateTime CreatedDate { get; set; }
+
+        public DateTime dateofbirth {get; set;}
 }
