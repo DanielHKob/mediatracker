@@ -6,13 +6,13 @@
             <div class="form-group half-width">
                 <mat-form-field appearance="outline" class="form-input">
                     <mat-label>First Name</mat-label>
-                    <input matInput formControlName="FirstName" type="text" required />
+                    <input matInput formControlName="firstName" type="text" required />
                 </mat-form-field>
             </div>
             <div class="form-group half-width">
                 <mat-form-field appearance="outline" class="form-input">
                     <mat-label>Last Name</mat-label>
-                    <input matInput formControlName="LastName" type="text" required />
+                    <input matInput formControlName="lastName" type="text" required />
                 </mat-form-field>
             </div>
         </div>
@@ -21,6 +21,17 @@
             <mat-form-field appearance="outline" class="form-input">
                 <mat-label>Email</mat-label>
                 <input matInput formControlName="email" type="email" required />
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field appearance="outline" class="form-input">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dateofbirth" 
+                required 
+                [min]="minDate"
+                [max]="maxDate"/>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
         </div>
   

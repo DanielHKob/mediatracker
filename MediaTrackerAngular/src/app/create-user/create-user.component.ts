@@ -8,6 +8,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
 import { CommonModule } from '@angular/common';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { catchError, throwError } from 'rxjs';
+
 
 @Component({
   selector: 'app-create-user',
@@ -17,7 +20,8 @@ import { CommonModule } from '@angular/common';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatNativeDateModule],
+    MatNativeDateModule,
+    MatDatepickerModule],
   templateUrl: './create-user.component.html',
   styleUrl: './create-user.component.css'
 })
@@ -27,14 +31,15 @@ email: any;
 userName: any; 
 createuser: number = 0;
 @Input() user!: User;
-
+  minDate: Date = new Date(new Date().getFullYear() - 50, 0, 1); // Default to 50 years ago
+  maxDate: Date = new Date(); // Default to today
 constructor( private router: Router,
   private userService: UserService,
   private fb: FormBuilder
  )
  {
   this.registerForm = this.fb.group({
-    email: ['', Validators.required, Validators.email(this.email)],
+    email: ['', [Validators.required, Validators.email, Validators.maxLength(100)]],
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
     dateofbirth: ['', Validators.required],
@@ -44,29 +49,58 @@ constructor( private router: Router,
 
  }
 
+ ngOninit(){
+  console.log("Create user component has been called!");
+ }
   onSubmit(): void {
+    console.log("onsubmit has been called!")
     if (this.registerForm.valid){
       this.getUserEmail();
+      this.getUserByEmail(this.email);
+    }
+    else{
+      console.log(this.registerForm);
     }
   }
 
   getUserEmail(){
+    console.log("getuserEmail has been called!");
     this.email = this.registerForm.value.email;
   }
 
-  getUserByEmail(email: string){
-    this.userService.getUserByEmail(email).subscribe((data: User) => {
-      this.user = data;
-      if ( this.email === this.user.Email) {
-        alert("Email already exists, please provide antoher one");
+  // getUserByEmail(email: string){
+  //   this.userService.getUserByEmail(email).subscribe((data: User) => {
+  //     this.user = data;
+  //     if ( this.email === this.user.Email) {
+  //       alert("Email already exists, please provide antoher one");
+  //     }
+  //   }, (error) => {
+  //     if (error.status === 404 ){
+
+  //     }
+  //   }
+  // )
+  // }
+
+  getUserByEmail(email: string) {
+    this.userService.getUserByEmail(email).subscribe(
+      (data: User) => {
+        this.user = data;
+        if (this.email === this.user.Email) {
+          alert("Email already exists, please provide another one");
+        }
+      },
+      (error) => {
+        console.error('Error in getUserByEmail:', error); // Log full error
+        if (error.status === 404) {
+          console.log(error.status);
+          this.createuser = 1;
+          this.createUser();
+        } else {
+          alert('An unexpected error occurred. Please try again.');
+        }
       }
-    }, (error) => {
-      if (error.status == 404 ){
-        this.createuser = 1;
-        this.createUser();
-      }
-    }
-  )
+    );
   }
 
   createUser(){
