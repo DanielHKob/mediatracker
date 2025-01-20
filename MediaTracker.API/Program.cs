@@ -1,3 +1,4 @@
+using MediaTracker.API.Middleware;
 using MediaTracker.Model.repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,7 +28,7 @@ if (app.Environment.IsDevelopment())
 //app.UseHttpsRedirection();
 //adding the usecors policy 
 app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
-
+app.UseHeaderAuthenticationMiddleware();
 app.UseAuthorization();
 
 app.MapControllers();
