@@ -94,9 +94,11 @@ constructor( private router: Router,
         console.error('Error in getUserByEmail:', error); // Log full error
         if (error.status === 404) {
           console.log(error.status);
+          console.log('Email not found, proceeding to create user');
           this.createuser = 1;
           this.createUser();
         } else {
+          console.log(error.status);
           alert('An unexpected error occurred. Please try again.');
         }
       }
