@@ -1,6 +1,6 @@
 namespace MediaTracker.Model.entities;
 
-public class Media-Category
+public class MediaCategory
 {
     public MediaCategory(int id)
     {

@@ -1,6 +1,6 @@
 namespace MediaTracker.Model.entities;
 
-public class Media-Type
+public class MediaType
 {
     public MediaType(int id)
     {
