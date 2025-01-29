@@ -15,7 +15,7 @@ export class UserService {
     private getAuthHeaders(): HttpHeaders {
       const token = "Abc123!!!"; // Retrieve the token from localStorage or another storage
       return new HttpHeaders({
-        'Authorization': `Bearer ${token}` // Replace 'Bearer' with your specific auth scheme if different
+        'X-My-Request-Header': token // Replace 'Bearer' with your specific auth scheme if different
       });
     }
 
